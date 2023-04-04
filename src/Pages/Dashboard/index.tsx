@@ -14,21 +14,8 @@ import { AuthContext } from "../../Contexts/AuthContext";
 import api from "../../Services/api";
 
 const Dashboard = () => {
-  const { contactsAt } = useContext(AuthContext);
-  console.log(contactsAt);
-  const [cont, setCont] = useState([
-    {
-      email: "guilherme@gmail.com",
-      telephone: "119879988",
-      name: "guilherme",
-    },
-  ]);
-
-  useEffect(() => {
-    const token = localStorage.getItem("@context:token");
-    api.defaults.headers.common.authorization = `Bearer ${token}`;
-    api.get("contacts").then((response) => setCont(response.data));
-  }, []);
+  const { contactsAt, setContactsAt } = useContext(AuthContext);
+  console.log("((((((((((((((((((", contactsAt);
 
   return (
     <StyledMain>
@@ -42,9 +29,10 @@ const Dashboard = () => {
           grow your business!
         </h1>
         <StyledContainerCards>
-          {cont.map((elem: any, index: any) => {
-            return <Card key={index} elem={elem} />;
-          })}
+          {contactsAt &&
+            contactsAt.map((elem: any, index: any) => {
+              return <Card key={index} elem={elem} />;
+            })}
         </StyledContainerCards>
 
         {/* // <Card /> */}
