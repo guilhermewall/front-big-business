@@ -2,7 +2,7 @@
 
 ##Para dar inicio a aplicação siga os seguintes passos:
 
-### intale as dependencias em sua maquina:
+### Instale as dependencias em sua maquina:
 ```bash
   yarn install
 ```
