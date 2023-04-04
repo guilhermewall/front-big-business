@@ -6,4 +6,10 @@ const formContact = yup.object().shape({
   telephone: yup.string().required("telefone obrigatorio"),
 });
 
-export { formContact };
+const formContactUpdated = yup.object().shape({
+  id: yup.number().required(),
+  name: yup.string(),
+  email: yup.string(),
+  telephone: yup.string(),
+});
+export { formContact, formContactUpdated };

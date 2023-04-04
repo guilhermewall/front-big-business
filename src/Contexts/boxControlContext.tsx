@@ -9,6 +9,8 @@ interface iBoxControlContext {
   open: boolean;
   openContact: boolean;
   eventOpenOrCloseContac: () => void;
+  openFormUp: boolean;
+  eventOpenFormUp: () => void;
 }
 
 export const BoxControlContext = createContext({} as iBoxControlContext);
@@ -16,6 +18,7 @@ export const BoxControlContext = createContext({} as iBoxControlContext);
 export const BoxControlProvider = ({ children }: iBoxControlProviderProps) => {
   const [open, setOpen] = useState(false);
   const [openContact, setOpenContact] = useState(false);
+  const [openFormUp, setOpenFormUp] = useState(false);
 
   const eventOpenOrClose = () => {
     setOpen(!open);
@@ -26,6 +29,10 @@ export const BoxControlProvider = ({ children }: iBoxControlProviderProps) => {
     setOpenContact(!openContact);
   };
 
+  const eventOpenFormUp = () => {
+    setOpenFormUp(!openFormUp);
+  };
+
   return (
     <BoxControlContext.Provider
       value={{
@@ -33,6 +40,8 @@ export const BoxControlProvider = ({ children }: iBoxControlProviderProps) => {
         open,
         openContact,
         eventOpenOrCloseContac,
+        openFormUp,
+        eventOpenFormUp,
       }}
     >
       {children}

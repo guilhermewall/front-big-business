@@ -2,11 +2,13 @@ import styled from "styled-components";
 
 export const StyledNav = styled.nav`
   width: 60%;
-  height: 50px;
+  height: 58px;
 
   margin-top: 50px;
+  display: flex;
+  justify-content: space-between;
 
-  /* background: green; */
+  // background: green;
 
   button {
     background: #f7e8da;
