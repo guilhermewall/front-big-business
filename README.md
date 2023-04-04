@@ -7,7 +7,7 @@
   yarn install
 ```
 
-###Agora rode o seguinte comando:
+### Agora rode o seguinte comando:
 ```bash
   yarn dev
 ```
