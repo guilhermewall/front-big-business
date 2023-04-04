@@ -46,13 +46,15 @@ export const StyledDivProfile = styled.div`
 export const StyledContainerCards = styled.div`
   display: flex;
   flex-wrap: wrap;
-  width: 500px;
+  width: 700px;
   height: 350px;
-  gap: 15px;
+  gap: 40px;
   overflow-y: scroll;
 
   /* background: green; */
   scroll-behavior: smooth;
+  margin-top: 40px;
+  background: #f9c9a4;
 
   ::-webkit-scrollbar-track {
     /*-webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);*/

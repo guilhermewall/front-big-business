@@ -34,6 +34,8 @@ interface iAuthContext {
   // contacts: () => void;
   contactsAt: any;
   setContactsAt: React.Dispatch<React.SetStateAction<any>>;
+  updatedContact: (data: any) => void;
+  setIdCard: React.Dispatch<React.SetStateAction<any>>;
 
   // atualizar interfaces
 }
@@ -45,6 +47,7 @@ export const AuthProvider = ({ children }: iAuthProviderProps) => {
 
   const [token, setToken] = useState();
   const [contactsAt, setContactsAt] = useState([]);
+  const [idCard, setIdCard] = useState();
 
   const validated = (dataUser: any) => {
     // console.log(dataUser);
@@ -117,6 +120,16 @@ export const AuthProvider = ({ children }: iAuthProviderProps) => {
       .catch((err) => console.log(err));
   };
 
+  const updatedContact = (data: any) => {
+    api.defaults.headers.common.authorization = `Bearer ${token}`;
+    console.log(data);
+
+    api
+      .patch("contacts", data)
+      .then((response) => console.log(response))
+      .catch((err) => console.log(err));
+  };
+
   return (
     <AuthContext.Provider
       value={{
@@ -125,6 +138,8 @@ export const AuthProvider = ({ children }: iAuthProviderProps) => {
         addContact,
         contactsAt,
         setContactsAt,
+        updatedContact,
+        setIdCard,
       }}
     >
       {children}
