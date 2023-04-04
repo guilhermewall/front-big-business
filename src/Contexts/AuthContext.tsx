@@ -36,6 +36,7 @@ interface iAuthContext {
   setContactsAt: React.Dispatch<React.SetStateAction<any>>;
   updatedContact: (data: any) => void;
   setIdCard: React.Dispatch<React.SetStateAction<any>>;
+  deleteContact: (email: any) => void;
 
   // atualizar interfaces
 }
@@ -130,6 +131,16 @@ export const AuthProvider = ({ children }: iAuthProviderProps) => {
       .catch((err) => console.log(err));
   };
 
+  const deleteContact = (data: any) => {
+    api.defaults.headers.common.authorization = `Bearer ${token}`;
+    const json = JSON.stringify(data);
+
+    api
+      .delete("contacts", data)
+      .then((response) => console.log(response))
+      .catch((err) => console.log(err));
+  };
+
   return (
     <AuthContext.Provider
       value={{
@@ -140,6 +151,7 @@ export const AuthProvider = ({ children }: iAuthProviderProps) => {
         setContactsAt,
         updatedContact,
         setIdCard,
+        deleteContact,
       }}
     >
       {children}

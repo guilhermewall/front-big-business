@@ -54,8 +54,8 @@ export const StyledDivEdit = styled.div`
 
   /* background: green; */
   display: flex;
-  justify-content: flex-end;
-
+  justify-content: space-between;
+  gap: 30px;
   svg {
     cursor: pointer;
   }
